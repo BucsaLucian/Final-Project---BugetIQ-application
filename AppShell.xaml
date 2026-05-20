@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CheltuieliApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CheltuieliApp"
+    Title="BugetIQ">
+
+    <Shell.FlyoutHeader>
+        <Grid Padding="15" BackgroundColor="White">
+            <Image Source="logo.png"
+                   WidthRequest="150"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="📊 Dashboard" Route="dashboard" Icon="dashboard.png">
+        <ShellContent ContentTemplate="{DataTemplate local:DashboardPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="💰 Total tranzacții" Route="listatotala" Icon="money.png">
+        <ShellContent ContentTemplate="{DataTemplate local:ListaTotalaPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📅 Raport lunar" Route="raportpezi" Icon="calendar.png">
+        <ShellContent ContentTemplate="{DataTemplate local:RaportPeDataPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📈 Raport anual" Route="raportanual" Icon="bar_chart.png">
+        <ShellContent ContentTemplate="{DataTemplate local:RaportAnualPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="ℹ️ Despre aplicație" Route="despre" Icon="info.png">
+        <ShellContent ContentTemplate="{DataTemplate local:DesprePage}" />
+    </FlyoutItem>
+</Shell>

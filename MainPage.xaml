@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CheltuieliApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Bine ai venit!" FontSize="24" HorizontalOptions="Center" />
+
+            <Button Text="Adaugă venit" Clicked="OnAdaugaVenitClicked" />
+            <Button Text="Adaugă cheltuială" Clicked="OnAdaugaCheltuialaClicked" />
+            <Button Text="Vezi toate tranzacțiile" Clicked="OnVeziToateClicked" />
+            <Button Text="Raport lunar" Clicked="OnRaportPeDataClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

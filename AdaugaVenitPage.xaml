@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CheltuieliApp.AdaugaVenitPage"
+    Title="Adaugă venit">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Categorie" />
+            <Entry x:Name="categorieEntry" Placeholder="Ex: Salariu, Bonus" />
+
+            <Label Text="Sumă (RON)" />
+            <Entry x:Name="sumaEntry" Keyboard="Numeric" />
+
+            <Label Text="Descriere (opțional)" />
+            <Entry x:Name="descriereEntry" />
+
+            <Label Text="Dată" />
+            <DatePicker x:Name="dataPicker" />
+
+            <Label Text="Ora" />
+            <TimePicker x:Name="oraPicker" />
+
+            <Button Text="Salvează" Clicked="OnSalveazaClicked" />
+
+            <Label x:Name="mesajLabel" IsVisible="False" TextColor="Red" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

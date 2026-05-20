@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheltuieliApp.ListaTotalaPage"
+             Title="Total tranzacții">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Venituri" FontSize="24" FontAttributes="Bold" />
+            <CollectionView x:Name="venituriList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" Padding="10" Margin="10,5"
+                   BackgroundColor="#e6ffe6" HasShadow="True">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Categorie}" FontAttributes="Bold" FontSize="14"/>
+                                    <Label Text="{Binding Suma, StringFormat='+{0:0} RON'}" FontSize="13" TextColor="Gray"/>
+                                </VerticalStackLayout>
+                                <ImageButton Source="trash_icon.png"
+                                 CommandParameter="{Binding .}"
+                                 Clicked="OnStergeVenitClicked"
+                                 HeightRequest="24" WidthRequest="24"
+                                 BackgroundColor="Transparent"
+                                 HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Label Text="Cheltuieli" FontSize="24" FontAttributes="Bold" />
+            <CollectionView x:Name="cheltuieliList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" Padding="10" Margin="10,5"
+                             BackgroundColor="#ffe6e6" HasShadow="True">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Categorie}" FontAttributes="Bold" FontSize="14"/>
+                                    <Label Text="{Binding Suma, StringFormat='-{0:0} RON'}" FontSize="13" TextColor="Gray"/>
+                                </VerticalStackLayout>
+                                <ImageButton Source="trash_icon.png"
+                                 CommandParameter="{Binding .}"
+                                 Clicked="OnStergeCheltuialaClicked"
+                                 HeightRequest="24" WidthRequest="24"
+                                 BackgroundColor="Transparent"
+                                 HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

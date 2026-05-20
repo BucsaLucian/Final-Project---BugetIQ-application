@@ -1,0 +1,92 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:local="clr-namespace:CheltuieliApp"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheltuieliApp.DashboardPage"
+             Title="Dashboard">
+
+    <ContentPage.Resources>
+        <local:TipToColorConverter x:Key="TipToColorConverter" />
+        <local:TipToIconConverter x:Key="TipToIconConverter" />
+        <local:TipToTextColorConverter x:Key="TipToTextColorConverter" />
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Panou Financiar"
+               HorizontalOptions="Center"
+               FontSize="28"
+               FontAttributes="Bold"
+               Margin="0,20,0,10" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Frame BackgroundColor="#e6ffe6" Padding="10" CornerRadius="10">
+                    <Label Text="{Binding TotalVenituriText}" TextColor="Green" FontSize="16" FontAttributes="Bold"/>
+                </Frame>
+                <Frame BackgroundColor="#ffe6e6" Padding="10" CornerRadius="10">
+                    <Label Text="{Binding TotalCheltuieliText}" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                </Frame>
+            </HorizontalStackLayout>
+            <Frame BackgroundColor="#f2f2f2" Padding="10" CornerRadius="10" HorizontalOptions="Center">
+                <Label Text="{Binding SoldText}" TextColor="Black" FontSize="16" FontAttributes="Bold" />
+            </Frame>
+
+
+            <Label Text="Istoric tranzacții recente"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#777" />
+
+            <CollectionView ItemsSource="{Binding TranzactiiRecente}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="5"
+                               Padding="10"
+                               CornerRadius="10"
+                               BackgroundColor="{Binding Tip, Converter={StaticResource TipToColorConverter}}">
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Tip}"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       TextColor="#333" />
+                                <VerticalStackLayout Padding="10,0">
+                                    <Label Text="{Binding Categorie}" FontAttributes="Bold" />
+                                    <Label Text="{Binding DataAfisata}" FontSize="12" TextColor="#555"/>
+                                </VerticalStackLayout>
+                                <Label Text="{Binding SumaAfisata}"
+                                       HorizontalOptions="EndAndExpand"
+                                       FontAttributes="Bold"
+                                       TextColor="{Binding Tip, Converter={StaticResource TipToTextColorConverter}}"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="➕ Adaugă venit"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnAdaugaVenitClicked" />
+
+            <Button Text="💸 Adaugă cheltuială"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnAdaugaCheltuialaClicked" />
+
+            <Button Text="📅 Raport lunar"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnRaportPeDataClicked" />
+
+            <Button Text="📊 Raport anual"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnRaportAnualClicked" />
+
+            <Button Text="📋 Total tranzacții"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnVeziTotClicked" />
+
+            <Button Text="📁 Exportă tranzacțiile (CSV)"
+        Style="{StaticResource MainButtonStyle}"
+        Clicked="OnExportCsvClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
